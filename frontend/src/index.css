@@ -1,0 +1,166 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@import "tailwindcss";
+
+
+:root {
+  color-scheme: dark;
+  font-family: "Inter", sans-serif;
+  --bg-deep: #07140f;
+  --bg-panel: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.12);
+  --text-soft: rgba(255, 255, 255, 0.72);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-deep);
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== REGISTER BACKGROUND ===== */
+.register-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.register-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("./assets/forest-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.05) brightness(0.55);
+  transform: scale(1.03);
+}
+
+.register-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(126, 255, 171, 0.18), transparent 30%),
+    radial-gradient(circle at 80% 18%, rgba(144, 224, 239, 0.12), transparent 28%),
+    radial-gradient(circle at 70% 80%, rgba(163, 230, 53, 0.08), transparent 26%),
+    linear-gradient(135deg, rgba(5, 16, 12, 0.78), rgba(8, 18, 14, 0.55) 38%, rgba(8, 15, 13, 0.82));
+}
+
+.register-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 160px 160px;
+}
+
+/* ===== FORM UI ===== */
+.input-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  transition: 0.25s ease;
+  overflow: hidden;
+}
+
+.input-shell:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.input-shell:focus-within {
+  border-color: rgba(156, 255, 185, 0.45);
+  box-shadow:
+    0 0 0 4px rgba(110, 255, 168, 0.08),
+    0 10px 35px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+.input-field {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  padding: 16px 18px 16px 48px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.error-text {
+  margin-top: 8px;
+  padding-left: 4px;
+  font-size: 13px;
+  color: #fca5a5;
+}
+
+.social-btn {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
+  padding: 14px 18px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+/* remove old vite centering issue if present */
+#root {
+  width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1279px) {
+  .register-bg {
+    background-position: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-bg {
+    filter: saturate(1) brightness(0.42);
+  }
+}
